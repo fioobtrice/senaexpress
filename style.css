@@ -1,0 +1,1377 @@
+body {
+    margin: 0;
+    background-color: #3A4B41;
+    overflow-x: hidden;
+}
+
+/* ================= VIDEO ================= */
+.video-container {
+    position: relative;
+}
+
+.video-container video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+    display: block;
+}
+
+.fade-video {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background: linear-gradient(to bottom, transparent, #3A4B41);
+    z-index: 2;
+}
+
+/* ================= OVERLAY TEXT ================= */
+.overlay-judul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    z-index: 10;
+    width: 90%;
+    text-align: center;
+}
+
+.overlay-judul h1 {
+    font-size: 6rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+    margin: 0;
+    animation: fadeSlideUp 1s ease-out forwards;
+}
+
+.overlay-judul h2 {
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    font-family: 'RoxboroughCF-ThinItalic', sans-serif;
+    font-style: italic;
+    margin-top: 10px;
+    animation: fadeSlideUp 1s ease-out forwards;
+}
+
+.btn-overlay {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
+    font-size: 18px;
+    animation: slideUp 0.8s ease-out forwards;
+}
+
+/* ================= NAVBAR ================= */
+.nav-wrapper {
+    position: fixed;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    z-index: 999;
+}
+
+.navbar {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(20px);
+    width: 80%;
+    max-width: 1200px;
+    border-radius: 40px;
+}
+
+.navbar-brand {
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.navbar-nav a {
+    color: #ffffff;
+    font-family: 'LeagueSpartan-VariableFont_wght', sans-serif;
+    font-size: 18px;
+}
+
+.nav-wrapper.scrolled .navbar {
+    background: rgba(0, 0, 0, 0.7) !important;
+    backdrop-filter: blur(10px);
+}
+
+/*================== TENTANG KAMI ================*/
+.tentang-kami {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #3a4b41;
+  padding: 100px 0px 50px 50px;
+  gap: 40px;
+}
+
+.tentang-kiri {
+  flex: 1;
+  padding-left: 50px;
+}
+
+.tentang-kecil p {
+  font-size: 20px;
+  color: #E6CFA7;
+  font-family: 'LeagueSpartan-VariableFont_wght', serif;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: muncul-kiri 2s ease forwards;
+}
+
+@keyframes muncul-kiri {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.tentang-kecil p::after {
+  content: '';
+  display: block;
+  width: 125px;
+  border-bottom: 5px solid #ffffff;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+.judul-tentang {
+  font-size: 36px;
+  color: #E6CFA7;
+  font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+  font-size: 35px;
+  max-width: 800px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  margin-top: 2px;
+  opacity: 0;
+  animation: muncul-kiri 2s ease forwards;
+}
+
+.deskripsi-tentang {
+  font-size: 16px;
+  color: #E6CFA7;
+  line-height: 1.8;
+  max-width: 800px;
+  font-family: 'Josefin Sans', serif;
+  font-size: 20px;
+  font-weight: 100;
+  text-align: left;
+  padding-top: 5px;
+  text-shadow: 2px 2px 4px rgba(143, 135, 135, 0.186);
+  opacity: 0;
+  animation: muncul-kiri 2s ease forwards;
+}
+
+.tentang-kanan {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  flex: 0.6;
+  padding-right: 50px;
+}
+
+.stat-box {
+  background: #E6CFA7;
+  border-radius: 12px;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  animation: bounce-masuk 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  opacity: 0;
+}
+
+.stat-box:nth-child(1) { animation-delay: 0.1s; }
+.stat-box:nth-child(2) { animation-delay: 0.3s; }
+.stat-box:nth-child(3) { animation-delay: 0.5s; }
+.stat-box:nth-child(4) { animation-delay: 0.7s; }
+
+.stat-box:hover {
+  background: rgba(255, 241, 222, 1);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+@keyframes bounce-masuk{
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.stat-angka {
+  font-size: 32px;
+  font-weight: bold;
+  color: #743815;
+  font-family: 'LeagueSpartan-VariableFont_wght', serif;
+}
+
+.stat-label {
+  font-size: 13px;
+  color: rgb(0, 0, 0);
+  font-family: 'LeagueSpartan-VariableFont_wght', serif;
+}
+
+.timeline-section {
+  padding: 20px 0px 50px 100px;
+  background-color: #3a4b41;
+  margin-top: -50px;
+}
+
+.timeline-judul {
+  font-size: 32px;
+  font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+  padding-top: 100px;
+  margin-bottom: 40px;
+  color: #E6CFA7;
+}
+
+.timeline {
+  display: flex;
+  align-items: flex-start;
+  position: relative;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 28px;
+  left: 50px;
+  right: 50px;
+  height: 2px;
+  background-color: #e78d0f;
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  text-align: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline-item.muncul {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.timeline-tahun {
+  font-size: 16px;
+  font-weight: bold;
+  color: #E6CFA7;
+  margin-bottom: 10px;
+  font-family: 'LeagueSpartan-VariableFont_wght', serif;
+}
+
+.timeline-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #e78d0f;
+  border: 3px solid white;
+  outline: 2px solid #e78d0f;
+  z-index: 1;
+  margin-bottom: 10px;
+}
+
+.timeline-konten {
+  font-size: 20px;
+  color: #E6CFA7;
+  max-width: 200px;
+  line-height: 1.3;
+  font-family: 'LeagueSpartan-VariableFont_wght', serif;
+}
+
+@font-face {
+  font-family: 'PlayfairDisplay-VariableFont_wght';
+  src: url('PlayfairDisplay-VariableFont_wght.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RoxboroughCF-ThinItalic.otf';
+  src: url('RoxboroughCF-ThinItalic.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'LeagueSpartan-VariableFont_wght';
+  src: url('LeagueSpartan-VariableFont_wght.ttf') format('truetype');
+}
+
+
+@media (max-width: 768px) {
+  .tentang-kami {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .tentang-kecil p {
+    padding-left: 0;
+  }
+
+  .tentang-kiri {
+    padding-left: 0;
+    width: 100%;
+    margin-left: 0;
+  }
+
+  .judul-tentang {
+    font-size: 32px;
+  }
+
+  .deskripsi-tentang {
+    font-size: 16px;
+  }
+
+  .tentang-kanan {
+    padding-right: 0;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .timeline-section {
+    padding: 20px;
+    margin-top: -30px;
+  }
+  
+  .timeline {
+    overflow-x: auto;
+    padding-bottom: 10px;
+    padding-left: 0;
+  }
+
+  .timeline-judul {
+    font-size: 24px;
+    padding-left: 0px;
+  }
+
+  .stat-box {
+    padding: 16px;
+  }
+
+  .stat-angka {
+    font-size: 24px;
+  }
+}
+
+/* ================= KEUNGGULAN ================= */
+.judul-keunggulan {
+    text-align: left;
+    background-color: #3A4B41;
+    display: inline-block;
+    color: #E6CFA7;
+    font-size: 20px;
+    font-family: 'LeagueSpartan-VariableFont_wght', serif;
+    padding-left: clamp(16px, 4vw, 40px);
+    padding-right: clamp(16px, 4vw, 40px);
+    padding-top: 80px;
+    padding-bottom: 40px;
+}
+
+.judul-keunggulan1 h2 {
+    font-size: 40px;
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+    color: #E6CFA7;
+}
+
+.judul-keunggulan2 {
+    width: 100%;
+    background-color: #3A4B41;
+}
+
+.line{
+    width: 100%;
+    height: 5px;
+    background: white;
+    margin-top: 15px;
+}
+
+/* ================= SLIDER ================= */
+/*DESKTOP*/
+.slider {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    padding-bottom: 50px;
+    background-color: #3A4B41;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+.slider-wrapper {
+    width: 100%;
+    margin: 0;
+}
+
+.slide-section {
+    background-color: #3A4B41;
+    padding-left: clamp(16px, 4vw, 40px);
+    padding-right: clamp(16px, 4vw, 40px);
+}
+
+.slide-container {
+    overflow: hidden;
+}
+
+.slide-container::-webkit-scrollbar {
+    display: none;
+}
+
+/*===========CARD========*/
+.keunggulan-card {
+    min-width: 300px;
+    flex: 0 0 auto;
+    padding: 20px;
+    background: #E6CFA7;
+    border-radius: 14px;
+    border: none;
+    cursor: pointer;
+
+    opacity: 0;
+    animation: keunggulan-cardMasuk 0.8s ease forwards;
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+}
+
+.keunggulan-card:hover{
+    transform: translateY(-8px);
+    box-shadow: 0 25px 40px rgba(0, 0, 0, 0.25);
+    background: #fff1d8;
+}
+
+@keyframes keunggulan-cardMasuk {
+  from {
+    opacity: 0;
+    transform: translateY(50px) scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.keunggulan-card:nth-child(1) {
+  animation-delay: 0.2s;
+}
+
+.keunggulan-card:nth-child(2) {
+  animation-delay: 0.4s;
+}
+
+.keunggulan-card:nth-child(3) {
+  animation-delay: 0.6s;
+}
+
+.keunggulan-card:nth-child(4) {
+  animation-delay: 0.8s;
+}
+
+.keunggulan-card:nth-child(5) {
+  animation-delay: 1s;
+}
+
+.keunggulan-card:nth-child(6) {
+  animation-delay: 1.2s;
+}
+
+/*=======ICON====*/
+.icon{
+    margin-bottom: 15px;
+}
+
+.icon img{
+    width: 45px;
+    height: 45px;
+    object-fit: contain;
+    display: block;
+
+    transition: transform 0.3s ease;
+}
+
+.icon:hover img{
+    transform: scale(1.12) rotate(-5deg);
+}
+
+/*=========TEXT=========*/
+.keunggulan-card h3{
+    color: #7B3F16;
+    margin-bottom: 12px;
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+}
+
+.keunggulan-card p{
+    color: #2d2d2d;
+    line-height: 1.;
+    margin-bottom: 0;
+    font-family: 'LeagueSpartan-VariableFont_wght', serif;
+}
+
+/* ================= LAYANAN ================= */
+.layanan-kecil p {
+  font-size: 18px;
+  color: #E6CFA7;
+  font-family: 'LeagueSpartan-VariableFont_wght', serif;
+  font-weight: 400;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  animation: muncul-kiri 2s ease forwards;
+  padding-left: 80px;
+  padding-bottom: -50px;
+  padding-top: 80px;
+}
+
+.layanan-kecil p::after {
+  content: '';
+  display: block;
+  width: 75px;
+  border-bottom: 5px solid #ffffff;
+  margin-top: 6px;
+  margin-bottom: 20px;
+}
+
+
+.layanan-section {
+    display: flex;
+    flex-direction: row;
+    gap: 50px;
+    padding: 0px 50px;
+    background-color: #3A4B41;
+}
+
+.layanan-list {
+    color: white;
+    width: 50%;
+}
+
+.layanan-list h2 {
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+    font-size: 40px;
+    padding-bottom: 10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.list-wrapper {
+    position: relative;
+}
+
+.slider-layanan::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to right, #3A4B41, transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.slider-layanan::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80px;
+    height: 100%;
+    background: linear-gradient(to left, #3A4B41, transparent);
+    z-index: 2;
+    pointer-events: none;
+}
+
+.list-container {
+    font-family: 'LeagueSpartan-VariableFont_wght', serif;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 10px;}
+
+.estimasi {
+    font-size: 15px;
+    font-family: 'LeagueSpartan-VariableFont_wght', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.list-container::-webkit-scrollbar{
+    width: 6px;
+}
+
+.list-container::-webkit-scrollbar-thumb {
+    background: #E6CFA7;
+    border-radius: 10px;
+}
+
+.list-container::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.layanan-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 15px 0;
+    border-bottom: 1px dashed rgba(255, 255, 255, 0.3);
+}
+
+.layanan-info h4 {
+    margin: 0;
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+    font-size: 30px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.layanan-info p {
+    margin: 5px 0 0 0;
+    font-size: 20px;
+    font-family: 'LeagueSpartan-VariableFont_wght', serif;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.aksi {
+    text-align: right;
+    color: #E6CFA7;
+    font-weight: bold;
+}
+
+.layanan-kanan {
+    display: flex;
+    width: 50%;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 25px;
+}
+
+.quotes {
+    width: 100%;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+.quotes h1 {
+    margin: 0;
+    color: white;
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+    font-size: 60px;
+    text-align: right;
+    font-style: italic;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.slider-layanan {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.slide-track {
+    display: flex;
+    gap: 20px;
+    width: max-content;
+    animation: scroll 20s linear infinite;
+}
+
+.slide-track img {
+    width: 200px;
+    height: 130px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.slider:hover .slide-track {
+    animation-play-state: paused;
+}
+
+#filterlayanan {
+    padding: 8px 12px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    border: none;
+    cursor: pointer;
+    font-family: 'LeagueSpartan-VariableFont_wght', serif;
+}
+
+/* ================= TESTIMONI ================= */
+.testimoni-section {
+    padding: 80px 50px;
+    background: #3A4B41;
+}
+
+.judul {
+    color: black;
+    font-size: 40px;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    text-align: center;
+    font-family: 'LeagueSpartan-VariableFont_wght', serif;
+    font-size: 50px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.testimoni-wrapper {
+    position: relative;
+    background: #E6CFA7;
+    padding: 40px 80px 70px;
+    border-radius: 25px;
+    backdrop-filter: blur(10px);
+    width: 100%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+}
+
+.testimoni-container {
+    overflow: hidden;
+    padding-top: 10px;
+}
+
+.testimoni-track {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.5s ease; 
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.5);
+    padding: 25px;
+    border-radius: 20px;
+    min-width: calc(100% / 3 - 14px);
+    border-color: black;
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+}
+
+.card p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.card h5 {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #3A4B41;
+}
+
+.nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.5);
+    border: none;
+    font-size: 22px;
+    padding: 10px;
+    border-color: #000;
+    border-radius: 50px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.nav.kiri {
+    left: 20px;
+}
+
+.nav.kanan {
+    right: 20px;
+}
+
+/* ================= ANIMASI ================= */
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+@keyframes fadeSlideUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+/* ================= HUBUNGI KAMI ================= */
+.hubungi-kami {
+    position: relative;
+    max-width: 1150px;
+    width: 100%;
+    margin: 40px auto;
+    background: url('gudang.jpeg') no-repeat center/cover;
+  
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    text-align: center;
+    overflow: hidden;
+
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+    color: #E6CFA7;
+}
+
+/* overlay */
+.isi {
+    position: absolute;
+    inset: 0;
+     background: rgba(230, 207, 167, 0.7); /* biar teks kebaca */
+    z-index: 1;
+}
+
+/* content utama */
+.content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    padding: 20px;
+}
+
+/* judul */
+.content h1 {
+    font-size: 2.6rem;
+    margin-bottom: 15px;
+    color: #000000;
+    font-weight: 700;
+}
+
+/* paragraf */
+.content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 25px;
+    color: #000;
+}
+
+/* info kontak */
+.contact-info {
+    margin-bottom: 25px;
+    font-size: 0.95rem;
+    color: #000;
+}
+
+.contact-info span {
+    margin: 0 10px;
+    display: inline-block;
+    color: #000;
+}
+
+/* tombol */
+.buttons {
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+.buttons .button-white {
+    background: #fffefb;
+    color: black;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    margin-right: 10px;
+    transition: 0.3s;
+}
+
+.buttons .button-outline {
+    border: 2px solid #fffefb;
+    color: black;
+    padding: 10px 25px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+.button-white:hover {
+  background: rgba(255, 241, 222, 1);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+  
+.button-outline:hover {
+  background: rgba(255, 241, 222, 1);
+  transform: translateY(-5px);
+  transition: all 0.3s ease;
+}
+
+/* ================= FOOTER ================= */
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@400;600;700&family=Playfair+Display:wght@400;700&display=swap');
+.satu {
+    background: linear-gradient(to bottom, #E6CFA7, #e0c395);
+    padding: 60px 70px;
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+
+    display: grid;
+    grid-template-columns: 1.2fr 1fr 1fr;
+    gap: 50px;
+
+    position: relative;
+}
+.satu::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: #2d2d2d;
+}
+.footer-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.footer-column:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    right: -25px;
+    top: 10%;
+    width: 1px;
+    height: 80%;
+    background: rgba(0,0,0,0.1);
+}
+.dua {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.footer-column h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #2d2d2d;
+    font-family: 'PlayfairDisplay-VariableFont_wght', serif;
+    font-weight: 700;
+    position: relative;
+    padding-bottom: 8px;
+}
+.footer-column h3::after {
+    content: "";
+    width: 40px;
+    height: 2px;
+    background: #2d2d2d;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.mt {
+    margin-top: 40px;
+}
+.footer-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.footer-column ul li {
+    margin-bottom: 12px;
+    font-size: 16px;
+    line-height: 1.6;
+    position: relative;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.footer-column ul li::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background: #2d2d2d;
+    transition: 0.3s;
+}
+.footer-column ul li:hover::after {
+    width: 100%;
+}
+.footer-column ul li:hover {
+    transform: translateX(6px);
+}
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+.contact-item i {
+    color: #2d2d2d;
+}
+.social {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+    font-size: 18px;
+}
+.social i {
+    cursor: pointer;
+    transition: 0.3s;
+}
+.social i:hover {
+    transform: scale(1.2);
+    color: #000;
+}
+.badge {
+    background: #2d2d2d;
+    color: #fff;
+    font-size: 10px;
+    padding: 2px 6px;
+    margin-right: 6px;
+    border-radius: 4px;
+}
+
+/* ================= ALIGN ================= */
+.tentang-kami,
+.timeline-section,
+.layanan-section,
+.testimoni-section,
+.slide-section,
+.judul-keunggulan,
+.layanan-kecil p {
+    padding-left: clamp(16px, 4vw, 80px) !important;
+    padding-right: clamp(16px, 4vw, 80px) !important;
+}
+
+.tentang-kiri,
+.tentang-kanan {
+    padding: 0 !important;
+}
+
+.testimoni-wrapper {
+    padding-left: clamp(20px, 5vw, 80px) !important;
+    padding-right: clamp(20px, 5vw, 80px) !important;
+}
+
+.timeline::before {
+    left: 0 !important;
+    right: 0 !important;
+}
+
+@media (max-width: 1024px) {
+    .tentang-kami {
+        flex-direction: column;
+        gap: 30px;
+    }
+
+    .tentang-kanan {
+        width: 100%;
+    }
+
+    .slider {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .slider {
+        grid-template-columns: 1fr;
+    }
+
+    .judul-keunggulan1 h2 {
+        font-size: 28px;
+    }
+
+    .layanan-list h2 {
+        font-size: 26px;
+    }
+
+    .quotes h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .testimoni-wrapper {
+        padding: 30px 20px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .overlay-judul h1 {
+        font-size: 2rem;
+    }
+
+    .overlay-judul h2 {
+        font-size: 0.9rem;
+    }
+
+    .btn-overlay {
+        font-size: 13px;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 991px) {
+    .navbar {
+        width: 95%;
+        border-radius: 20px;
+        padding: 10px 15px;
+    }
+
+    .navbar-collapse {
+        background: rgba(0, 0, 0, 0.85);
+        margin-top: 10px;
+        border-radius: 15px;
+        padding: 15px;
+    }
+
+    .navbar-nav {
+        text-align: center;
+        gap: 10px;
+    }
+
+    .nav-link {
+        color: white !important;
+        padding: 10px 0;
+    }
+}
+
+@media (max-width: 768px) {
+
+    /*VIDEO*/
+    .video-container video {
+        height: 92vh;
+    }
+    
+    /* TEXT */
+    .overlay-judul h1 {
+        font-size: 2.5rem;
+    }
+
+    .overlay-judul h2 {
+        font-size: 1rem;
+    }
+
+    .btn-overlay {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    /* NAVBAR */
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 999;
+        background: #E6CFA7;
+    }
+
+    /* TENTANG */
+    .tentang {
+        flex-direction: column;
+        text-align: center;
+        padding: 50px 20px;
+    }
+
+    .tentang-judul {
+        font-size: 30px;
+    }
+
+    .tentang-penjelasan {
+        font-size: 16px;
+        text-align: center;
+    }
+
+    /* SLIDER */
+    .card {
+        min-width: 80%;
+    }
+
+    .slider {
+        grid-template-columns: 1fr;    
+    }
+}
+ /* FOOTER */
+@media (max-width: 768px) {
+
+    .satu {
+        grid-template-columns: 1fr; /* jadi 1 kolom */
+        gap: 30px;
+        padding: 30px 20px;
+        text-align: center;
+    }
+
+    .footer-column::after {
+        display: none;
+    }
+
+    .footer-column {
+        align-items: center;
+    }
+
+    .dua {
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-column h3 {
+        font-size: 20px;
+    }
+
+    .footer-column ul li {
+        font-size: 15px;
+    }
+
+    .contact-item {
+        justify-content: center;
+    }
+
+}
+
+/* FOOTER */
+@media (max-width: 768px) {
+
+    .footer-column {
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgba(0,0,0,0.1);
+    }
+
+    .footer-column:last-child {
+        border-bottom: none;
+    }
+
+}
+
+/* LAYANAN */
+@media (max-width: 1024px) {
+
+    .layanan-section {
+        flex-direction: column;
+        gap: 40px;
+        padding: 60px 40px;
+    }
+
+    .layanan-list,
+    .layanan-kanan {
+        width: 100%;
+    }
+
+    .quotes h1 {
+        font-size: 40px;
+        text-align: center;
+    }
+
+    .layanan-kanan {
+        align-items: center;
+    }
+
+    .slider-layanan {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+
+    .layanan-section {
+        padding: 40px 20px;
+    }
+
+    .layanan-list h2 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    .quotes h1 {
+        font-size: 26px;
+        text-align: center;
+        line-height: 1.4;
+    }
+
+    .layanan-card {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .aksi {
+        text-align: left;
+    }
+
+    .layanan-info h4 {
+        font-size: 22px;
+    }
+
+    .layanan-info p {
+        font-size: 16px;
+    }
+
+    .estimasi {
+        font-size: 16px;
+    }
+
+    .slide-track img {
+        width: 140px;
+        height: 100px;
+    }
+
+    .list-container {
+        max-height: 250px;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .quotes h1 {
+        font-size: 22px;
+    }
+
+    .slide-track img {
+        width: 120px;
+        height: 90px;
+    }
+
+    .layanan-info h4 {
+        font-size: 20px;
+    }
+
+    .layanan-info p {
+        font-size: 14px;
+    }
+}
+
+/* ================= SCROLL REVEAL ================= */
+.reveal {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
